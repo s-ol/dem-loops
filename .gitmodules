@@ -1,0 +1,3 @@
+[submodule "schedulor"]
+	path = schedulor
+	url = git://github.com/s-ol/schedulor.git
