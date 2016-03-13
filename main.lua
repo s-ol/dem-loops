@@ -1,4 +1,3 @@
--- nmap <buffer> <Leader>r :!love . zoom<CR>
 local i, loop = 2
 while true do
   local a = arg[i]
@@ -31,9 +30,8 @@ else
   require "moonscript"
   Loop = require(loop)
   loop = Loop()
-
   if RENDER then
-    loop:render(fps, output, true)
+    loop:render(fps, output, not no_overwrite)
   else
     loop:run()
   end

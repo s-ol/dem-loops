@@ -1,6 +1,7 @@
 class DemoLoop
   {graphics: lg, filesystem: fs} = love
   new: =>
+    lg.setBackgroundColor 0, 0, 0, 0
     @loops = {}
 
   add: (loop) =>
@@ -18,6 +19,8 @@ class DemoLoop
   render: (fps=60, dirname=@@__name, overwrite=false) =>
     fs.setIdentity "demöloop"
     if overwrite
+      for file in *fs.getDirectoryItems dirname
+        fs.remove dirname .. "/" .. file
       fs.remove dirname
     else
       while fs.exists dirname

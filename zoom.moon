@@ -40,7 +40,7 @@ class Zoom extends DemoLoop
         lg.getWidth!/5 * math.sin t*2*math.pi
 
   draw: =>
-    {:a, :b, :c, :inner_size, :outer_size, :inner_radius, :outer_radius, :rot} = @square
+    {:a, :b, :c, :inner_size, :outer_size, :inner_radius, :rot} = @square
     width, height = lg.getDimensions!
 
     lg.setColor c                                 -- background / outmost "square"
@@ -51,8 +51,9 @@ class Zoom extends DemoLoop
 
     lg.setColor b                                 -- middle square
     lg.rotate rot
-    lg.rectangle "fill", -outer_size/2, -outer_size/2, outer_size, outer_size, outer_radius, outer_radius
+    lg.rectangle "fill", -outer_size/2, -outer_size/2, outer_size, outer_size
 
     lg.setColor a                                 -- inner square / circle
     lg.rotate -2*rot
+    inner_radius = math.min inner_radius, inner_size/2
     lg.rectangle "fill", -inner_size/2, -inner_size/2, inner_size, inner_size, inner_radius, inner_radius
