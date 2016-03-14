@@ -10,11 +10,19 @@ class DemoLoop
   draw: =>
 
   update: (dt) =>
-    @done = true
     for loop in *@loops
-      loop\update dt
-      @done = @done and loop.done
-    @done
+      if loop\update dt then
+        loop.frames_since_done = 3
+      elseif loop.frames_since_done
+        loop.frames_since_done = loop.frames_since_done - 1
+
+    done = true
+    for loop in *@loops
+      if not loop.frames_since_done or loop.frames_since_done < 0
+        done = false
+        break
+
+    @done or= done
 
   render: (fps=60, dirname=@@__name, overwrite=false) =>
     fs.setIdentity "demöloop"
@@ -55,7 +63,7 @@ class DemoLoop
     love.update = @\update
 
 iter = (table) ->
-  index = 0
+  index = -1
   len = #table
   ->
     index = (index + 1)%len

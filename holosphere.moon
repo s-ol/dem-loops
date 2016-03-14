@@ -47,12 +47,12 @@ class HoloSphere extends DemoLoop
         0.03 * (1.8 + math.sin t*2*math.pi)
 
     @add Loop @, 7, ->
-      space "segs", {7, 4, 3, 2, 2, 2, 3, 4, 5}
-      space "sphere_color", sphere_colors
+      space "jump", segs: {7, 4, 3, 2, 2, 2, 3, 4, 5}
+      space "jump", sphere_color: sphere_colors
 
     @add Loop @, 6, ->
-      space "rings", {3, 2, 4, 7, 8, 5}
-      space "wire_colors", wire_colors
+      space "jump": rings: {3, 2, 4, 7, 8, 5}
+      space "jump": wire_colors: wire_colors
 
   rebuild: =>
     @one = @build_sphere @rings + 1, @segs + 1, false

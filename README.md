@@ -23,3 +23,9 @@ not that happy with it, either going to improve it until the end of the week or 
 ![holosphere](gifs/holosphere.gif)  
 [(source)](holosphere.moon)
 [(on streak.club)](https://streak.club/p/17097/holographics-sphere-gif-by-s-ol)
+
+I made a second, different version reusing a lot of the code that I like better:
+
+![holosphere2](gifs/holosphere2.gif)  
+[(source)](holosphere2.moon)
+[(on streak.club)](https://streak.club/p/17097/holographics-sphere-gif-by-s-ol)
