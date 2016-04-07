@@ -39,3 +39,11 @@ sort of inspired by one leafo made (["rects"](http://streak.club/p/5917/rects-by
 [(source)](triangles.moon)
 [(on streak.club)](https://streak.club/p/17232/triangles-by-s-ol)
 
+cube
+----
+
+not sure what exactly this is. sorry for missing last week :(
+
+![cube](gifs/cube.gif)  
+[(source)](cube.moon)
+[(on streak.club)](https://streak.club/p/17372/cube-by-s-ol)
