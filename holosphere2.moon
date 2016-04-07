@@ -56,8 +56,8 @@ class HoloSphere extends DemoLoop
         .5 + .5 * math.sin t*math.pi/2
       uuntil 7, sphere_retract: 1
 
-    segs = {7, 10, 13, 11, 9, 7, 13, 19}
-    rings = {11, 9, 13, 20, 17, 13, 11, 15, 13, 13, 13}
+    segs = {7, 10, 10, 10, 15, 9, 7, 11, 19}
+    rings = {13, 20, 20, 20, 11, 15, 13, 13}
     sphere_colors = [ {hsl2rgb love.math.random!, love.math.random!/3+.2, love.math.random!/3+.1, 1} for _ in *segs ]
     wire_colors   = [ {hsl2rgb love.math.random!, love.math.random!/3+.6, love.math.random!/3+.6}     for _ in *rings ]
 
@@ -67,17 +67,13 @@ class HoloSphere extends DemoLoop
       space "jump", :segs
       space "colorease", sphere_color: sphere_colors
 
-    @add Loop @, 6, ->
+    @add Loop @, 8, ->
       uuntil 0, wire_color: wire_colors[#wire_colors], rings: rings[#rings]
 
       space "jump", :rings
       space "colorease", wire_color: wire_colors
 
   rebuild: =>
-    @one = @build_sphere @rings, @segs
-    @lrings, @lsegs = @rings, @segs
-
-  build_sphere: (rings, subdivisions, ends=true) =>
     vertices = {}
     add_vert = (elevation, angle) ->
       table.insert vertices, {
@@ -88,25 +84,34 @@ class HoloSphere extends DemoLoop
       }
       #vertices
 
-    mid = (rings - 1) / 2
-    rings = for r=0, rings-1
-      elevation = math.pi/2 - r * math.pi / (rings-1)
-      segments = subdivisions * (mid - math.abs mid - r)
+    mid = (@rings - 1) / 2
+    rings = for r=0, @rings-1
+      elevation = math.pi/2 - r * math.pi / (@rings-1)
+      segments = @segs * (mid - math.abs mid - r)
 
-      if ends and math.pi/2 == math.abs elevation
+      if math.pi/2 == math.abs elevation
         {add_vert elevation, 0}
       else
         for n=0, segments-1
           add_vert elevation, n * 2*math.pi / segments
 
     mesh = lg.newMesh {{"VertexPosition", "float", 2}, {"VertexColor", "float", 3}}, #vertices, "points", "stream"
-    {:vertices, :mesh, :rings}
+    @sphere = {:vertices, :mesh, :rings}
+    @lrings, @lsegs = @rings, @segs
 
   update_mesh: (sphere, rot) =>
-    verts = for vert in *sphere.vertices
+
+  time: 0
+  update: (dt) =>
+    done = super dt
+
+    if @lsegs != @segs or @lrings != @rings
+      @rebuild!
+
+    verts = for vert in *@sphere.vertices
       {x, y, z, r, g, b} = vert
-      rotx = math.cos(rot) * x + math.sin(rot) * z
-      rotz = math.sin(rot) * x - math.cos(rot) * z
+      rotx = math.cos(@rot) * x + math.sin(@rot) * z
+      rotz = math.sin(@rot) * x - math.cos(@rot) * z
 
       alpha = math.atan2 rotz, rotx
       dy = math.sqrt(x*x + z*z) * math.sin alpha
@@ -116,14 +121,7 @@ class HoloSphere extends DemoLoop
       r, g, b = r/255 - dy, g/255 - dy, b/255 - dy
       {rotx*@radius*@retract, y*@radius*@retract, r, g, b}
 
-    sphere.mesh\setVertices verts
-
-  time: 0
-  update: (dt) =>
-    done = super dt
-    if @lsegs != @segs or @lrings != @rings
-      @rebuild!
-    @update_mesh @one, @rot
+    @sphere.mesh\setVertices verts
     done
 
   draw: =>
@@ -138,23 +136,23 @@ class HoloSphere extends DemoLoop
     lg.circle "fill", 0, 0, @radius*@retract*@sphere_retract, @radius * 200
 
     lg.setColor @wire_color
-    lg.draw @one.mesh
+    lg.draw @sphere.mesh
 
     {r, g, b} = @wire_color
     love.graphics.setColor r, g, b, @line_alpha
-    for ring in *@one.rings
+    for ring in *@sphere.rings
       if #ring > 2
-        verts = [select c, @one.mesh\getVertex i for i in *ring for c=1,2]
+        verts = [select c, @sphere.mesh\getVertex i for i in *ring for c=1,2]
         verts[#verts+1], verts[#verts+2] = verts[1], verts[2]
         lg.line verts
 
     for s=0,@segs-1
-      verts = for i,r in ipairs @one.rings
+      verts = for i,r in ipairs @sphere.rings
         n = math.floor #r / @segs
         r[1 + n*s]
 
       if #verts > 2
-        lg.line [select c, @one.mesh\getVertex i for i in *verts for c=1,2]
+        lg.line [select c, @sphere.mesh\getVertex i for i in *verts for c=1,2]
 
 if DEBUG then love.keypressed = (key) ->
   switch key
