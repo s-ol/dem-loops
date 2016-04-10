@@ -1,3 +1,4 @@
 *.lua
 run.sh
 !main.lua
+!conf.lua

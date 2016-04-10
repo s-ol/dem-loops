@@ -47,7 +47,7 @@ class CubeDemo extends DemoLoop
 
   draw: =>
     width, height = lg.getDimensions!
-    lg.translate width/2, height/2
+    lg.translate width/2 - 50, height/2
     lg.scale @scale if @scale
 
     lg.push!
