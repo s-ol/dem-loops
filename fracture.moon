@@ -16,7 +16,6 @@ class FractureDemo extends DemoLoop
       table.insert @triangle, math.sin a
 
     @size = 70
-    @spacing = 1
 
     colors = iter [{hsl2rgb love.math.random!, love.math.random!/3+.4, love.math.random!/3+.3, 1} for i=1,4]
 
@@ -24,10 +23,10 @@ class FractureDemo extends DemoLoop
     @outer = @inner
 
     @add Loop 8, @, ->
-      set 0, spacing: 1
-      untl .6, spacing: 1
-      ease .7, spacing: 2
-      ease .8, spacing: 1
+      set 0, spacing: .5
+      untl .6, spacing: .5
+      ease .7, spacing: .7
+      ease .8, spacing: .5
 
     @add Loop 2, @, ->
       set 0, outer: @outer, inner: @inner
@@ -80,7 +79,7 @@ class FractureDemo extends DemoLoop
       lg.translate .5 * @size, .5 * @slide
       lg.rotate @inner_rot
       lg.scale @size
-      lg.translate .5 * @spacing, 0
+      lg.translate @spacing, 0
       lg.polygon "fill", @triangle
       lg.pop!
       lg.rotate math.pi*2 / 3
