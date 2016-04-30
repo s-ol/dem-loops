@@ -31,37 +31,28 @@ class Flipping extends DemoLoop
     @rot   = 0
     @maxshear = .4
 
-    otherver = true
-
     @add Loop 4/6, @, ->
       @rot -= math.pi/3
 
       ease .5, "sine-out", scale: 0
-      ease 1, "sine-in", scale: -1
-      set 0, scale: 1
+      ease .95, "sine-in", scale: -1
+      jump 1, scale: 1
+
+      untl .15, shear: 0
+      ease .5, "sine-in", shear: @maxshear
+      ease .85, "sine-out", shear: 0
 
       untl .5, color: @color
       colorease 1, color: color!
       @color2 = @color
 
-      ease .5, "sine-in", shear: @maxshear
-      ease 1, "sine-out", shear: 0
 
       @maxshear = -@maxshear
-
-      ease  1, "sine-out",  ring: .6
+      ease  1, "sine-out",  ring: .4
       ease .5, "sine-in",   ring: .2
 
-      if otherver
-        ease  1, "sine-out",  ring: .4
-        ease .5, "sine-in",   ring: .2
-
-      untl .3, ringrot: 0
-      if otherver
-        ease .7, ringrot: math.pi/3*2
+      untl .4, ringrot: 0
       ease .7, ringrot: math.pi/3
-
-    @add Loop 1, @, ->
 
     @time = 0
     width, height = lg.getDimensions!
