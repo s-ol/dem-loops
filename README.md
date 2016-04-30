@@ -56,3 +56,12 @@ a triangle splitting into 4 triangles and reassembling.
 ![fracture](gifs/fracture.gif)  
 [(source)](fracture.moon)
 [(on streak.club)](https://streak.club/p/17513/fractured-triangle-by-s-ol)
+
+flipping
+---------
+
+more shapes. cut-short triangle flipping around a hexagon
+
+![flipping](gifs/flipping.gif)  
+[(source)](flipping.moon)
+[(on streak.club)](https://streak.club/p/17646/flipping-by-s-ol)
