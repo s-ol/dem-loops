@@ -22,13 +22,13 @@ not that happy with it, either going to improve it until the end of the week or 
 
 ![holosphere](gifs/holosphere.gif)  
 [(source)](holosphere.moon)
-[(on streak.club)](https://streak.club/p/17097/holographics-sphere-gif-by-s-ol)
+[(on streak.club)](https://streak.club/p/17097/holographic-sphere-gif-by-s-ol)
 
 I made a second, different version reusing a lot of the code that I like better:
 
 ![holosphere2](gifs/holosphere2.gif)  
 [(source)](holosphere2.moon)
-[(on streak.club)](https://streak.club/p/17097/holographics-sphere-gif-by-s-ol)
+[(on streak.club)](https://streak.club/p/17097/holographic-sphere-gif-by-s-ol)
 
 triangles
 ---------
@@ -47,3 +47,12 @@ not sure what exactly this is. sorry for missing last week :(
 ![cube](gifs/cube.gif)  
 [(source)](cube.moon)
 [(on streak.club)](https://streak.club/p/17372/cube-by-s-ol)
+
+fracture
+--------
+
+a triangle splitting into 4 triangles and reassembling.
+
+![fracture](gifs/fracture.gif)  
+[(source)](fracture.moon)
+[(on streak.club)](https://streak.club/p/17513/fractured-triangle-by-s-ol)
