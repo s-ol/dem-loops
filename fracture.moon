@@ -4,7 +4,7 @@ import Loop           from require "schedulor.loop"
 import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
-class FractureDemo extends DemoLoop
+class Fracture extends DemoLoop
   new: =>
     super!
 
@@ -21,12 +21,6 @@ class FractureDemo extends DemoLoop
 
     @inner = colors!
     @outer = @inner
-
-    @add Loop 8, @, ->
-      set 0, spacing: .5
-      untl .6, spacing: .5
-      ease .7, spacing: .7
-      ease .8, spacing: .5
 
     @add Loop 2, @, ->
       set 0, outer: @outer, inner: @inner
@@ -79,9 +73,9 @@ class FractureDemo extends DemoLoop
       lg.translate .5 * @size, .5 * @slide
       lg.rotate @inner_rot
       lg.scale @size
-      lg.translate @spacing, 0
+      lg.translate .5, 0
       lg.polygon "fill", @triangle
       lg.pop!
       lg.rotate math.pi*2 / 3
 
-FractureDemo
+Fracture
