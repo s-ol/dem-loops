@@ -4,7 +4,7 @@ import Loop           from require "schedulor.loop"
 import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
-class NewDemo extends DemoLoop
+class Triangles extends DemoLoop
   new: =>
     super!
 
@@ -117,4 +117,4 @@ class NewDemo extends DemoLoop
     lg.pop!
 
 
-NewDemo
+Triangles
