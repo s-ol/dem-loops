@@ -65,3 +65,12 @@ more shapes. cut-short triangle flipping around a hexagon
 ![flipping](gifs/flipping.gif)  
 [(source)](flipping.moon)
 [(on streak.club)](https://streak.club/p/17646/flipping-by-s-ol)
+
+circle
+------
+
+very simplistic one, needs improvement
+
+![circle](gifs/circle.gif)  
+[(source)](circle.moon)
+[(on streak.club)](https://streak.club/p/17742/circle-by-s-ol)
