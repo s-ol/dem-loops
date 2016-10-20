@@ -3,7 +3,7 @@ while true do
   local a = arg[i]
   if not a then break end
 
-  flag = a:match "^%-%-(.*)$"
+  local flag = a:match "^%-%-(.*)$"
   if flag then
     if flag == "debug" or flag == "render" then
       _G[string.upper(flag)] = true
@@ -13,7 +13,7 @@ while true do
     end
   elseif a ~= "." then
     loop = a
-    for i=i,1,-1 do table.remove(arg, i) end
+    for n=i,1,-1 do table.remove(arg, n) end
     break
   end
   i = i + 1
@@ -28,7 +28,7 @@ if not loop then
 else
   package.path = "./?/init.lua;" .. package.path
   require "moonscript"
-  Loop = require(loop)
+  local Loop = require(loop)
   loop = Loop()
   if RENDER then
     loop:render(fps, output, not no_overwrite)

@@ -68,5 +68,3 @@ class Circle extends DemoLoop
     lg.rotate @slice*math.pi/2
     lg.arc "fill", 0, 0, @size*@grow, 0, (-@slice) *math.pi
     lg.pop!
-
-Circle

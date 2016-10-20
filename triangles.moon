@@ -115,6 +115,3 @@ class Triangles extends DemoLoop
       lg.pop!
       lg.translate 0, -(@triangle[2] - @triangle[6])
     lg.pop!
-
-
-Triangles

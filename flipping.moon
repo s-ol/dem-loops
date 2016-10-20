@@ -85,5 +85,3 @@ class Flipping extends DemoLoop
     lg.scale @size
     lg.setColor @color
     lg.polygon "fill", @triangle
-
-Flipping

@@ -75,5 +75,3 @@ class CubeDemo extends DemoLoop
     lg.shear @shearb, -@shearb
     lg.rectangle "fill", -50, -50, 100, 100
     lg.pop!
-
-CubeDemo

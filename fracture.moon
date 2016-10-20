@@ -77,5 +77,3 @@ class Fracture extends DemoLoop
       lg.polygon "fill", @triangle
       lg.pop!
       lg.rotate math.pi*2 / 3
-
-Fracture
