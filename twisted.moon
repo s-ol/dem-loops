@@ -22,11 +22,11 @@ class TwistedDemo extends DemoLoop
 
     @time += dt
 
-    @time >= math.pi*2
+    @time >= math.pi*4
 
   draw: =>
     width, height = lg.getDimensions!
-    lg.translate width/2, height/2 + 60
+    lg.translate width/2, height/2 + 70
 
     draw = (i) ->
       love.graphics.push!
@@ -40,6 +40,6 @@ class TwistedDemo extends DemoLoop
       love.graphics.rectangle "fill", -80, -80, 160, 160
       love.graphics.pop!
 
-    for i=0,1,1/(20 + 19 * math.cos @time)
+    for i=0,1,1/(20 + 19 * math.sin(@time / 2))
       draw i
     draw 1
