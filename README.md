@@ -74,3 +74,11 @@ very simplistic one, needs improvement
 ![circle](gifs/circle.gif)  
 [(source)](circle.moon)
 [(on streak.club)](https://streak.club/p/17742/circle-by-s-ol)
+
+twisted
+-------
+
+inspired by [this small tutorial](http://www.like100bears.com/writing/2d-3d-in-gamemaker-studio) on a 2d/3d artstyle
+
+![twisted](gifs/twisted.gif)  
+[(source)](twisted.moon)
