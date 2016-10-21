@@ -82,3 +82,11 @@ inspired by [this small tutorial](http://www.like100bears.com/writing/2d-3d-in-g
 
 ![twisted](gifs/twisted.gif)  
 [(source)](twisted.moon)
+
+shutter
+-------
+
+random shutter-y thing
+
+![shutter](gifs/shutter.gif)  
+[(source)](shutter.moon)
