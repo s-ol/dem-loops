@@ -90,3 +90,11 @@ random shutter-y thing
 
 ![shutter](gifs/shutter.gif)  
 [(source)](shutter.moon)
+
+divide
+------
+
+accident from another WIP turned into this, might not continue original
+
+![divide](gifs/divide.gif)  
+[(source)](divide.moon)
