@@ -98,3 +98,11 @@ accident from another WIP turned into this, might not continue original
 
 ![divide](gifs/divide.gif)  
 [(source)](divide.moon)
+
+dots
+----
+
+inspired by [this reddit post](https://www.reddit.com/r/gifs/comments/5bayiu/dont_click_on_this_if_you_are_currently_drunk/)
+
+![dots](gifs/dots.gif)  
+[(source)](dots.moon)
