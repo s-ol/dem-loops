@@ -106,3 +106,11 @@ inspired by [this reddit post](https://www.reddit.com/r/gifs/comments/5bayiu/don
 
 ![dots](gifs/dots.gif)  
 [(source)](dots.moon)
+
+weekly3
+-------
+
+invitation to [the 3rd 'weekly loop' online demoparty on streak.club](https://streak.club/s/818/weekly-loop-3)
+
+![weekly3](gifs/weekly3.gif)  
+[(source)](weekly3.moon)
