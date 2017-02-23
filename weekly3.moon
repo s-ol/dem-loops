@@ -90,7 +90,7 @@ class Weekly extends DemoLoop
     for y=1, 7
       lg.push!
       for x=1, 12
-        lg.setColor @color[.5 + .5 * math.sin 0.4 * y * @time*math.pi/6]
+        lg.setColor @color[(0.1 * y + math.floor(x/3) + @time/6) % 1]
         lg.print "Weekly"
         lg.translate weeklywidth, 0
       lg.pop!
