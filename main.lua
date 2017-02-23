@@ -27,9 +27,10 @@ if not loop then
   love.event.push "quit"
 else
   package.path = "./?/init.lua;" .. package.path
-  require "moonscript"
+  pcall(require, "moonscript")
   local Loop = require(loop)
-  loop = Loop()
+  _, loop = pcall(Loop)
+  if not _ then loop = loop.new() end
   if RENDER then
     loop:render(fps, output, not no_overwrite)
   else
