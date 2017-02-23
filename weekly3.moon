@@ -31,11 +31,16 @@ class Weekly extends DemoLoop
         return transform_projection * vertex_position;
       }
     "
-  colors = lg.newShader "
+  vignette = lg.newShader "
       varying vec2 vpos;
 
       vec4 effect(vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords) {
-        return vec4(vpos/60, 0.5f, Texel(texture, texture_coords).a);
+        vec2 uv = 1 - (screen_coords / love_ScreenSize.xy);
+        uv *=  1.0 - uv.xy;
+        float vig = uv.x*uv.y * 15.0;
+        vig = pow(vig, 0.6);
+
+        return vec4(color.rgb, Texel(texture, texture_coords).a * vig);
       }
     ", "
       varying vec2 vpos;
@@ -78,7 +83,7 @@ class Weekly extends DemoLoop
     sin = (i) -> math.sin(@time / i * math.pi * 2)
     cos = (i) -> math.cos(@time / i * math.pi * 2)
 
-    lg.setShader!
+    lg.setShader vignette
     lg.setFont @smallfont
     lg.push!
     lg.translate -200, -200
