@@ -5,13 +5,11 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Dots extends DemoLoop
+  length: 6
   new: =>
     super!
-    @Length = 6
 
     @background = {hsl2rgb love.math.random!, love.math.random!/3+.2, love.math.random!/4}
-
-    @time = 0
 
   update: (dt) =>
     super dt * 2
