@@ -48,6 +48,7 @@ class DemoLoop
   {graphics: lg, filesystem: fs} = love
   new: =>
     lg.setBackgroundColor 0, 0, 0, 0
+    @time = 0
     @loops = {}
 
   add: (loop) =>
@@ -56,19 +57,26 @@ class DemoLoop
   draw: =>
 
   update: (dt) =>
+    @time += dt
+
     for loop in *@loops
       if loop\update dt then
         loop.frames_since_done = 3
       elseif loop.frames_since_done
         loop.frames_since_done = loop.frames_since_done - 1
 
-    done = true
+    done = #@loops > 0
     for loop in *@loops
       if not loop.frames_since_done or loop.frames_since_done < 0
         done = false
         break
 
+    if @length and @time > @length
+      @time -= @length
+      done = true
+
     @done or= done
+    @done
 
   render: (fps=60, dirname=@@__name, overwrite=false) =>
     fs.setIdentity "demöloop"
@@ -93,7 +101,7 @@ class DemoLoop
         for name, a,b,c,d,e,f in love.event.poll!
           if name == "quit"
             return
-          love.handlers[name](a,b,c,d,e,f)
+          love.handlers[name] a,b,c,d,e,f
 
         break if @update dt
 
@@ -114,7 +122,6 @@ iter = (table) ->
   len = #table
   ->
     index = (index + 1)%len
-    --index == 0, table[index+1]
     table[index+1]
 
 {

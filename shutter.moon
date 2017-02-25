@@ -3,7 +3,8 @@
 import hsl2rgb  from require "schedulor.color"
 import DemoLoop from require "demoloop"
 
-class Fracture extends DemoLoop
+class Shutter extends DemoLoop
+  length: 18
   new: =>
     super!
 
@@ -22,17 +23,6 @@ class Fracture extends DemoLoop
         { x,  y },
         { x, -y },
       }, nil, "static"
-
-    @time = 0
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-
-    if @time > 18
-      @time -= 18
-      true
 
   draw_triangle: (side, shade, center_dist=0, add_rot=0) =>
     lg.push!

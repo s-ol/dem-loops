@@ -5,6 +5,7 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Triangles extends DemoLoop
+  length: 8
   new: =>
     super!
 
@@ -60,15 +61,6 @@ class Triangles extends DemoLoop
 
       ease 1, total_rot: 2*math.pi
       set  0, total_rot: 0
-
-    @time = 0
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 8
-      true
 
   draw: =>
     width, height = lg.getDimensions!

@@ -1,6 +1,7 @@
 {graphics: lg} = love
 
-import Loop, hsl2rgb from require "schedulor"
+import Loop     from require "schedulor.loop"
+import hsl2rgb  from require "schedulor.color"
 import DemoLoop from require "demoloop"
 
 local HOLOSPHERE

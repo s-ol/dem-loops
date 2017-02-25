@@ -30,23 +30,29 @@ else
   local _, Loop = pcall(require, loop)
   if not _ then
     pcall(require, "moonscript")
-    _, Loop = pcall(require, loop)
+    _, err = pcall(require, loop)
+    if _ then Loop = err end
   end
   if not _ then
     print("ERROR: failed to require loop")
     print("tried to import with lua and moonscript")
+    print("", Loop)
+    print("", err)
     love.event.push "quit"
     return
   end
 
-  _, loop = pcall(Loop)
-  if not _ then
-    _, loop = pcall(loop.new)
+  local _
+  if Loop.new then
+    _, loop = pcall(Loop.new)
+  else
+    _, loop = pcall(Loop)
   end
   if not _ then
     print("ERROR: failed to instantiate Loop")
     print("implement either .__call or .new")
     print("(or return a function)")
+    print("", loop)
     love.event.push "quit"
     return
   end

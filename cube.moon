@@ -5,6 +5,7 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class CubeDemo extends DemoLoop
+  length: 2
   new: =>
     super!
 
@@ -15,16 +16,12 @@ class CubeDemo extends DemoLoop
     @shades = {key, {hsl2rgb hue, love.math.random!/5+.4, light} for key, light in pairs {front: .7, top: .5, side: .3}}
 
     @rot = 0
-    @rtime = 0
-    @length = 2
 
   update: (dt) =>
-    super dt
-
     STILL = .4
     scale = 2*math.pi/@length
 
-    time = @rtime
+    time = @time
     if time < STILL
       time = time * time / STILL
       --@scale = math.min 1, 2 * time * time / STILL / STILL
@@ -40,10 +37,7 @@ class CubeDemo extends DemoLoop
     @shearc = .5 * math.cos time * scale
     @shearb =  2 * math.sin time * scale
 
-    @rtime += dt
-    if @rtime > @length
-      @rtime -= @length
-      true
+    super dt
 
   draw: =>
     width, height = lg.getDimensions!

@@ -5,9 +5,9 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Circle extends DemoLoop
+  length: 3
   new: =>
     super!
-    @time = 0
 
     love.math.setRandomSeed 420
 
@@ -39,13 +39,6 @@ class Circle extends DemoLoop
       set 0, :slice_color
       untl .6, :slice_color
       colorease .9, slice_color: @large_color
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 4
-      true
 
   draw: =>
     width, height = lg.getDimensions!

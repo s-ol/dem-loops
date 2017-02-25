@@ -5,6 +5,7 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Fracture extends DemoLoop
+  length: 8
   new: =>
     super!
 
@@ -41,15 +42,6 @@ class Fracture extends DemoLoop
 
       ease 1, rot: 2*math.pi/3
       set  1, rot: 0
-
-    @time = 0
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 8
-      true
 
   draw: =>
     width, height = lg.getDimensions!

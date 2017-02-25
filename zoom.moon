@@ -5,10 +5,10 @@ import hsl2rgb from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Zoom extends DemoLoop
+  length: 6
   new: =>
     super!
 
-    @time = 0
     @square = {}
 
     colors = [ [{hsl2rgb love.math.random!, love.math.random!/3+.3, love.math.random!/3+.3} for x=1,4] for y=1,3]
@@ -48,13 +48,6 @@ class Zoom extends DemoLoop
 
       ease .5, "sine-in-out", xoffset: lg.getWidth!/10
       ease 1, "sine-in-out", xoffset: -lg.getWidth!/10
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 6
-      true
 
   draw: =>
     {:a, :b, :c, :inner_size, :outer_size, :inner_radius, :rot} = @square

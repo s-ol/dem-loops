@@ -5,6 +5,7 @@ import hsl2rgb        from require "schedulor.color"
 import DemoLoop, iter from require "demoloop"
 
 class Flipping extends DemoLoop
+  length: 4
   new: =>
     super!
 
@@ -54,16 +55,8 @@ class Flipping extends DemoLoop
       untl .4, ringrot: 0
       ease .7, ringrot: math.pi/3
 
-    @time = 0
     width, height = lg.getDimensions!
     @size = .25 * math.min width, height, math.sqrt width * width + height * height
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 4
-      true
 
   draw: =>
     width, height = lg.getDimensions!

@@ -18,6 +18,7 @@ class Divide extends DemoLoop
   RX = 3
   RY = 4
 
+  length: 9
   new: =>
     super!
 
@@ -28,15 +29,6 @@ class Divide extends DemoLoop
     @color = color!
 
     @background = {hsl2rgb love.math.random!, love.math.random!/3+.2, love.math.random!/4}
-
-    @time = 0
-
-  update: (dt) =>
-    super dt
-
-    @time += dt
-    if @time > 9
-      true
 
   g2c: (x, y) =>
     cx = x - math.ceil y / 2
