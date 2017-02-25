@@ -13,7 +13,7 @@ class Weekly extends DemoLoop
       vec4 effect(vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords) {
         number val = 0;
         for (int i = 0; i < 2; i++) {
-          vec2 quad = pow(vpos -  - centers[i], vec2(1.8f));
+          vec2 quad = pow(vpos + centers[i], vec2(1.8f));
           val += 1.0f / (quad.x + quad.y);
         }
 
@@ -32,8 +32,6 @@ class Weekly extends DemoLoop
       }
     "
   vignette = lg.newShader "
-      varying vec2 vpos;
-
       vec4 effect(vec4 color, Image texture, vec2 texture_coords, vec2 screen_coords) {
         vec2 uv = 1 - (screen_coords / love_ScreenSize.xy);
         uv *=  1.0 - uv.xy;
@@ -42,15 +40,8 @@ class Weekly extends DemoLoop
 
         return vec4(color.rgb, Texel(texture, texture_coords).a * vig);
       }
-    ", "
-      varying vec2 vpos;
-      vec4 position( mat4 transform_projection, vec4 vertex_position )
-      {
-        vpos = vertex_position.xy;
-        return transform_projection * vertex_position;
-      }
     "
-
+  length: 6
   new: =>
     super!
 
@@ -71,13 +62,6 @@ class Weekly extends DemoLoop
 
     lw.setMode 500, 180
     lg.setBackgroundColor 0, 0, 0, 255
-
-  update: (dt) =>
-    @time += dt
-
-    if @time >= 6
-      @time -= 6
-      true
 
   draw: =>
     sin = (i) -> math.sin(@time / i * math.pi * 2)
