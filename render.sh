@@ -18,7 +18,8 @@ render() {
 
 if [[ $1 == "all" ]]; then
   for loop in *.moon; do
-    render `basename $loop .moon`
+    [[ "$loop" = demoloop.moon ]] && continue
+    echo render `basename $loop .moon`
   done
 elif [[ -n $1 ]]; then
   render "$@"

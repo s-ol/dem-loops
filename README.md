@@ -82,6 +82,7 @@ inspired by [this small tutorial](http://www.like100bears.com/writing/2d-3d-in-g
 
 ![twisted](gifs/twisted.gif)  
 [(source)](twisted.moon)
+[(source, lua)](twisted_lua.lua)
 
 shutter
 -------
