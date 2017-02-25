@@ -27,10 +27,30 @@ if not loop then
   love.event.push "quit"
 else
   package.path = "./?/init.lua;" .. package.path
-  pcall(require, "moonscript")
-  local Loop = require(loop)
+  local _, Loop = pcall(require, loop)
+  if not _ then
+    pcall(require, "moonscript")
+    _, Loop = pcall(require, loop)
+  end
+  if not _ then
+    print("ERROR: failed to require loop")
+    print("tried to import with lua and moonscript")
+    love.event.push "quit"
+    return
+  end
+
   _, loop = pcall(Loop)
-  if not _ then loop = loop.new() end
+  if not _ then
+    _, loop = pcall(loop.new)
+  end
+  if not _ then
+    print("ERROR: failed to instantiate Loop")
+    print("implement either .__call or .new")
+    print("(or return a function)")
+    love.event.push "quit"
+    return
+  end
+
   if RENDER then
     loop:render(fps, output, not no_overwrite)
   else
