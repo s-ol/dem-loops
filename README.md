@@ -115,3 +115,12 @@ invitation to [the 3rd 'weekly loop' online demoparty on streak.club](https://st
 
 ![weekly3](gifs/weekly3.gif)  
 [(source)](weekly3.moon)
+
+planetary
+---------
+
+main idea has been done lots of times, but this was a nice exercise in geometry.
+
+![planetary](gifs/planetary.gif)  
+[(source)](planetary.moon)
+[(on streak.club)](http://streak.club/p/25483/planetary-by-s-ol)
