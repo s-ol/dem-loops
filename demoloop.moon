@@ -36,9 +36,9 @@ hsl2rgb = (h, s, l, a=1) ->
   else
     local q
     if l < 0.5
-      l * (1 + s)
+      q = l * (1 + s)
     else
-      l + s - l * s
+      q = l + s - l * s
     p = 2 * l - q
 
     r = hue2rgb p, q, h + 1/3
