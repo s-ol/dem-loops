@@ -124,3 +124,12 @@ main idea has been done lots of times, but this was a nice exercise in geometry.
 ![planetary](gifs/planetary.gif)  
 [(source)](planetary.moon)
 [(on streak.club)](http://streak.club/p/25483/planetary-by-s-ol)
+
+goldfish
+--------
+
+pssst, this is for my mom's birthday. don't tell her yet!
+
+![goldfish](gifs/goldfish.gif)  
+[(source)](goldfish.moon)
+[(on streak.club)](https://streak.club/p/25634/goldfish-by-s-ol)
