@@ -3,7 +3,7 @@
 import DemoLoop, hsl2rgb from require "demoloop"
 
 class Goldfish extends DemoLoop
-  length: 8
+  length: 14
   new: =>
     super!
 
@@ -21,13 +21,16 @@ class Goldfish extends DemoLoop
       lg.polygon 'fill', triangle
 
   draw: =>
-    t = (.45 + @time/@length) % 1
+    scale = math.max lg.getWidth!/500, lg.getHeight!/400
+    lg.translate 0, -150
+    lg.scale scale
+    t = .6 --(.45 + @time/@length) % 1
     start = 0 -- .5
     duration = .3
 
     delta = 0
-    if t >= start and t <= start + duration
+    if @time/@length >= start and t <= start + duration
       delta = (1 - math.cos (t - start)/duration * math.pi*2) / 2 * .2
 
-    @draw_layer @layers.water, t + delta
-    @draw_layer @layers.fish, t
+    @draw_layer @layers.water, t
+    @draw_layer @layers.fish, t + delta

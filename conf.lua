@@ -1,6 +1,6 @@
 function love.conf(t)
   t.identity = nil
-  t.window.width  = 500
-  t.window.height = 400
+  t.window.width  = 1680
+  t.window.height = 1050
   t.window.msaa = 8
 end
