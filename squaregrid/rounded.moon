@@ -7,6 +7,10 @@ class RoundedSquareGrid extends DemoLoop
   length: 4
   COUNT = 10
 
+  new: =>
+    super!
+    lg.setBackgroundColor 0, 0, 0, 255
+
   square: (rad) => lg.rectangle "fill", -.5, -.5, 1, 1, rad/2, rad/2
 
   draw: =>

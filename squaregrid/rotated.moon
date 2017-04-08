@@ -7,6 +7,10 @@ class RotatingSquareGrid extends DemoLoop
   length: 2
   COUNT = 10
 
+  new: =>
+    super!
+    lg.setBackgroundColor 0, 0, 0, 255
+
   square: => lg.rectangle "fill", -.5, -.5, 1, 1
 
   draw: =>

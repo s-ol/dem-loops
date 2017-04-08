@@ -133,3 +133,16 @@ pssst, this is for my mom's birthday. don't tell her yet!
 ![goldfish](gifs/goldfish.gif)  
 [(source)](goldfish.moon)
 [(on streak.club)](https://streak.club/p/25634/goldfish-by-s-ol)
+
+squaregrid
+--------
+
+two versions of monochrome grids of rotated squares / rounded squares.
+
+![squaregrid.rotated](gifs/squaregrid.rotated.gif)  
+[(source)](squaregrid.rotated.moon)
+
+![squaregrid.rounded](gifs/squaregrid.rounded.gif)  
+[(source)](squaregrid.rounded.moon)
+
+[(on streak.club)](https://streak.club/p/25971/welp-by-s-ol)
