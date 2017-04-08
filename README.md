@@ -145,4 +145,7 @@ two versions of monochrome grids of rotated squares / rounded squares.
 ![squaregrid.rounded](gifs/squaregrid.rounded.gif)  
 [(source)](squaregrid.rounded.moon)
 
+![squaregrid.overlaid](gifs/squaregrid.overlaid.gif)  
+[(source)](squaregrid.overlaid.moon)
+
 [(on streak.club)](https://streak.club/p/25971/welp-by-s-ol)
