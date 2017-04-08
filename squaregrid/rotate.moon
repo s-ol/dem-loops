@@ -3,7 +3,7 @@
 import hsl2rgb  from require "schedulor.color"
 import DemoLoop from require "demoloop"
 
-class Zoom extends DemoLoop
+class RotatingSquareGrid extends DemoLoop
   length: 2
   COUNT = 10
 
