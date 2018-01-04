@@ -133,3 +133,10 @@ pssst, this is for my mom's birthday. don't tell her yet!
 ![goldfish](gifs/goldfish.gif)  
 [(source)](goldfish.moon)
 [(on streak.club)](https://streak.club/p/25634/goldfish-by-s-ol)
+
+toroid
+------
+
+tracing the two spirals around from 0 to 16 windings each. built at 34c3 with \[moritz\] as a stepping stone towards [torus3d](https://github.com/s-ol/torus3d).
+![toroid](gifs/toroid.gif)  
+[(source)](toroid.moon)
