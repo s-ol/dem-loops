@@ -12,7 +12,7 @@ render() {
   wd=`pwd`
   pushd $out &> /dev/null # apparently having the filenames long breaks stuff?
   convert -delay 3 -dispose Background *.png $wd/gifs/$loop.gif
-  ffmpeg -v warning -r 30 -i '%06d.png' -y $wd/gifs/$loop.mp4
+  ffmpeg -y -v warning -framerate 30 -i '%06d.png' -crf 0 $wd/gifs/$loop.mp4
   popd &> /dev/null
   echo rendered gifs/$loop.gif
 }

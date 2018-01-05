@@ -2,8 +2,7 @@
 
 import DemoLoop, hsl2rgb from require "demoloop"
 
-
-class Loop extends DemoLoop
+class Goldfish extends DemoLoop
   length: 8
   new: =>
     super!
