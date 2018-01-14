@@ -154,5 +154,14 @@ toroid
 ------
 
 tracing the two spirals around from 0 to 16 windings each. built at 34c3 with \[moritz\] as a stepping stone towards [torus3d](https://github.com/s-ol/torus3d).
+
 ![toroid](gifs/toroid.gif)  
 [(source)](toroid.moon)
+
+infinity
+------
+
+twisting and pulsing infinity-ish symbol.
+
+![infinity](gifs/infinity.gif)  
+[(source)](infinity.moon)
