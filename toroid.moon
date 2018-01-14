@@ -3,7 +3,8 @@
 import hsl2rgb  from require "schedulor.color"
 import DemoLoop from require "demoloop"
 
-lg.setLineJoin "none"
+lg.setLineJoin 'none'
+lg.setBlendMode 'lighten', 'premultiplied'
 
 torus = (loops, edge) ->
   a, b = 1, loops
@@ -30,19 +31,20 @@ class Toroid extends DemoLoop
   draw: =>
     three_d = torus math.pow(2, 4 * math.sin(@time/2)), 240
 
+    w, h = lg.getDimensions!
+    lg.setColor 0, 0, 0
+    lg.rectangle 'fill', 0, 0, w, h
 
-    w, h = lg.getDimensions()
-    scale = math.min(w, h) * 0.3
-    lg.translate(w/2, h/2)
-    lg.setBlendMode('lighten', 'premultiplied')
+    scale = 0.3 * math.min w, h
+    lg.translate w/2, h/2
 
-    x_z, y_z = math.sin(@time*1.5) * 0.2, 0.2 + math.sin(@time) * 0.2
-    for i,p in ipairs(three_d)
+    x_z, y_z = math.sin(@time*1.5) * 0.2, 0.2 + 0.2 * math.sin @time
+    for i,p in ipairs three_d
       x = scale * (p[1] + p[2] * x_z)
       y = scale * (p[3] + p[2] * y_z)
 
       c = 0.7 + p[2] * 0.27
-      r, g, b = hsl2rgb((@time/2)%1, c, 0.5, 255)
+      r, g, b = hsl2rgb (@time/2)%1, c, 0.5, 255
       --lg.setColor(c*66, c*244, c*98)
-      lg.setColor(c*r, c*g, c*b)
-      lg.circle('fill', x, y, (p[2] + 3) * 4)
+      lg.setColor c*r, c*g, c*b
+      lg.circle 'fill', x, y, (p[2] + 3) * 4

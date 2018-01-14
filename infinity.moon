@@ -3,13 +3,18 @@
 import hsl2rgb  from require "schedulor.color"
 import DemoLoop from require "demoloop"
 
+lg.setBlendMode 'lighten', 'premultiplied'
+lg.setBackgroundColor 0, 0, 0, 255
+
 class Infinity extends DemoLoop
   length: 6
 
   draw: =>
     w, h = lg.getDimensions!
+    lg.setColor 0, 0, 0
+    lg.rectangle 'fill', 0, 0, w, h
+
     lg.translate w/2, h/2
-    lg.setBlendMode 'lighten', 'premultiplied'
     scale = 0.5 * math.min w, h
 
     pos = @time/2 % 1
