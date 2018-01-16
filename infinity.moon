@@ -31,4 +31,4 @@ class Infinity extends DemoLoop
       c = 2 * 255 * math.abs n
 
       lg.setColor c, c, c
-      lg.circle 'fill', x*scale, y*scale, rad
+      lg.circle 'fill', x*scale, y*scale, rad * scale/200

@@ -29,7 +29,7 @@ class Toroid extends DemoLoop
   length: math.pi*4
 
   draw: =>
-    three_d = torus math.pow(2, 4 * math.sin(@time/2)), 240
+    three_d = torus math.pow(2, 4 * math.sin(@time/2)), 600
 
     w, h = lg.getDimensions!
     lg.setColor 0, 0, 0
@@ -47,4 +47,4 @@ class Toroid extends DemoLoop
       r, g, b = hsl2rgb (@time/2)%1, c, 0.5, 255
       --lg.setColor(c*66, c*244, c*98)
       lg.setColor c*r, c*g, c*b
-      lg.circle 'fill', x, y, (p[2] + 3) * 4
+      lg.circle 'fill', x, y, (p[2] + 3) * scale / 30
